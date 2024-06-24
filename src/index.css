@@ -1,12 +1,13 @@
 * {
   margin: 0;
   padding: 0;
+
 }
 
 body {
-  background-image: url("https://img.freepik.com/free-vector/cat-lover-pattern-background-design_53876-100662.jpg");
-  background-position: center;
+  /* background-image: url("https://img.freepik.com/free-vector/cat-lover-pattern-background-design_53876-100662.jpg"); */
+  /* background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 500px;
+  min-height: 600px; */
 }

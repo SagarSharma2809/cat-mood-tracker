@@ -1,16 +1,25 @@
 import React from 'react';
-import NavBar from './NavBar';
-import HeroSection from './HeroSection';
-import { Box } from '@mui/material';
+
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import NavBar from "./NavBar";
+import Home from "./Home";
+import Mood from "./Mood";
+import History from "./History";
+
+
+
 
 function App() {
   return (
     <>
-      <NavBar />
-
-
-      <HeroSection />
-
+      <Router>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/Mood" element={<Mood />} />
+          <Route path="/History" element={<History />} />
+        </Routes>
+      </Router>
     </>
   );
 }

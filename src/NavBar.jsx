@@ -1,4 +1,7 @@
+//React
 import { useState } from "react";
+
+//Material UI 
 import { AppBar } from "@mui/material"
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -12,6 +15,14 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import PetsRoundedIcon from '@mui/icons-material/PetsRounded';
+
+//Page Navigation
+import {
+
+    Link,
+} from "react-router-dom";
+
+
 
 const pages = ['Home', 'Mood', 'History'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -38,6 +49,7 @@ export default function NavBar() {
 
 
     return (
+
 
         <AppBar position="static">
             <Container maxWidth="xl">
@@ -92,7 +104,10 @@ export default function NavBar() {
                         >
                             {pages.map((page) => (
                                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">{page}</Typography>
+                                    <Link to={page == "Home" ? "/" : `/${page}`}>
+                                        <Typography textAlign="center">{page}</Typography>
+                                    </Link>
+
                                 </MenuItem>
                             ))}
                         </Menu>
@@ -121,6 +136,8 @@ export default function NavBar() {
                             <Button
                                 key={page}
                                 onClick={handleCloseNavMenu}
+                                component={Link}
+                                to={page === "Home" ? "/" : `/${page}`}
                                 sx={{ my: 2, color: 'white', display: 'block' }}
                             >
                                 {page}
@@ -159,6 +176,9 @@ export default function NavBar() {
                     </Box>
                 </Toolbar>
             </Container>
+
         </AppBar>
+
+
     )
 }
