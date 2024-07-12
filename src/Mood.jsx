@@ -81,6 +81,7 @@ export default function Mood() {
     }
 
     return (
+        <>
         <Box sx={{ p: 2, m: 4, textAlign: 'center' }}>
             <StyleRating
                 name="highlight-selected-only"
@@ -104,5 +105,8 @@ export default function Mood() {
                 </Box>
             )}
         </Box>
+
+        <h1>hi there</h1>
+        </>
     );
 }
