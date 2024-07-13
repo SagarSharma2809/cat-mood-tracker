@@ -137,7 +137,7 @@ export default function NavBar() {
                                 key={page}
                                 onClick={handleCloseNavMenu}
                                 component={Link}
-                                to={page === "Home" ? "/" : `/${page}`}
+                                to={page === "Home" ? "/" : `/${page}Page`}
                                 sx={{ my: 2, color: 'white', display: 'block' }}
                             >
                                 {page}

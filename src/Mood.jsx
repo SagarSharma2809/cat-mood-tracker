@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState } from 'react';
+
 import propTypes from 'prop-types';
 import Rating from "@mui/material/Rating";
 import { styled } from '@mui/material/styles';
@@ -106,7 +107,8 @@ export default function Mood() {
             )}
         </Box>
 
-        <h1>hi there</h1>
+        
+        
         </>
     );
 }

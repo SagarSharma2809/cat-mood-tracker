@@ -1,6 +1,6 @@
 // import NavBar from "./NavBar"
 
-export default function History() {
+export default function HistoryPage() {
 
     return (
         <>
