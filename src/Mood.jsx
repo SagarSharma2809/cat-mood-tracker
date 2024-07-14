@@ -73,12 +73,14 @@ IconContainer.propTypes = {
     value: propTypes.number.isRequired,
 };
 
-export default function Mood() {
-    const [mood, setMood] = useState(3.5);
+export default function Mood({ mood, onMoodChange }) {
+    
     const [hover, setHover] = useState(-1);
 
+    
+
     const changeMood = (event, newValue) => {
-        setMood(newValue);
+        onMoodChange(newValue);
     }
 
     return (
