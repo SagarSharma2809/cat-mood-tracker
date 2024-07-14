@@ -104,7 +104,7 @@ export default function NavBar() {
                         >
                             {pages.map((page) => (
                                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Link to={page == "Home" ? "/" : `/${page}`}>
+                                    <Link to={page == "Home" ? "/" : `/${page}Page`}>
                                         <Typography textAlign="center">{page}</Typography>
                                     </Link>
 

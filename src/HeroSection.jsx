@@ -11,7 +11,7 @@ export default function HeroSection() {
                 <HeroSectionHeading />
 
                 <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-                    <Button variant="contained" component={Link} to="/Mood" sx={{ maxWidth: 200, mt: 3, borderRadius: '1em', fontWeight: 'bold' }}> Start Now!</Button>
+                    <Button variant="contained" component={Link} to="/MoodPage" sx={{ maxWidth: 200, mt: 3, borderRadius: '1em', fontWeight: 'bold' }}> Start Now!</Button>
                 </Box>
 
             </Box>

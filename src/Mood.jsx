@@ -83,7 +83,7 @@ export default function Mood() {
 
     return (
         <>
-        <Box sx={{ p: 2, m: 4, textAlign: 'center' }}>
+        <Box sx={{ p: 3, textAlign: 'center' }}>
             <StyleRating
                 name="highlight-selected-only"
                 value={mood}
