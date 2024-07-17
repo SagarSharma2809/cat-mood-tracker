@@ -1,5 +1,6 @@
 
 import HeroSection from './HeroSection';
+import NavBar from './NavBar';
 
 export default function Home() {
     return (
@@ -8,11 +9,11 @@ export default function Home() {
             backgroundPosition: "center 80%",
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
-            height: "35rem",
+            height: "100vh",
             boxSizing: "border-box",
             overflowY: "hidden"
         }}>
-
+            <NavBar />
             <HeroSection />
         </div>
     )

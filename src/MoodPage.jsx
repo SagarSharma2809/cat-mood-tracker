@@ -1,5 +1,6 @@
 import Mood from "./Mood"
 import Note from "./Note"
+import NavBar from "./NavBar";
 import { useState } from "react";
 
 import { Box } from "@mui/material"
@@ -61,9 +62,9 @@ const customIcons = {
 }
 
 
-export default function MoodPage({changeData}){
+export default function MoodPage({ changeData }) {
 
-    
+
     const [mood, setMood] = useState(3.5);
     const [note, setNote] = useState("");
 
@@ -72,42 +73,43 @@ export default function MoodPage({changeData}){
         setMood(newMood);
     };
 
-    const noteChange = (newNote) =>{
+    const noteChange = (newNote) => {
         setNote(newNote);
     }
 
-    const handleClick = () =>{
+    const handleClick = () => {
         changeData(customIcons[mood].label, note, todayDate);
-        alert("Data saved successfully")
+        // alert("Data saved successfully")
         setMood(3.5);
         setNote("");
     }
 
-    
+
     return (
-    <>
-    
-    
-        <Box sx={{display: 'flex', flexDirection: { xs: 'column', md: 'row' }, height: {xs:'100vh', md: '90vh'}}}>  
+        <Box sx={{ height: { xs: '100%', md: '100vh' }, backgroundImage: 'url("https://wallpaperaccess.com/full/9460702.png")', backgroundPosition: 'center', backgroundSize: 'cover', border: '1px solid red' }}>
 
-            <Box sx={{p:4, display: 'flex', flexDirection: 'column', alignItems: 'center', backgroundImage: 'url("https://wallpaperaccess.com/full/9460702.png")', backgroundPosition: 'center', backgroundSize: 'cover',width: { xs: '100%', md: '50%' }, overflow: 'hidden'}}>
-                <h1 style={{color:'black', marginTop: '1.5em'}}>Cat's Mood Today, {todayDate}</h1>
+            <NavBar />
+            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: 'center', justifyContent: 'center' }}>
 
-                <Box sx={{backgroundColor: 'rgb(255, 255, 255, 0.6)', m: 2, borderRadius: '0.4em'}}>
-                    <Mood mood={mood} onMoodChange={handleMoodChange} />
-                    <Box sx={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
-                        <Note note={note} handleNoteChange={noteChange}/>
-                        <Button variant="contained" sx={{m:4}} onClick={handleClick}>Submit</Button>
+                <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: { xs: '100%', md: '50%' }, overflow: 'hidden' }}>
+                    <h1 style={{ color: 'white', marginTop: '1.5em' }}>Cat's Mood Today, <span style={{ color: "black", fontStyle: 'italic' }}>{todayDate}</span></h1>
+
+                    <Box sx={{ backgroundColor: 'rgb(255, 255, 255, 0.6)', m: 2, borderRadius: '0.4em' }}>
+                        <Mood mood={mood} onMoodChange={handleMoodChange} />
+                        <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+                            <Note note={note} handleNoteChange={noteChange} />
+                            <Button variant="contained" sx={{ m: 4 }} onClick={handleClick}>Submit</Button>
+                        </Box>
                     </Box>
                 </Box>
-            </Box>
 
-            <Box sx={{p: 2, width: { xs: '100%', md: '50%', overflow: 'hidden'}, display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                <img src="https://i.pinimg.com/736x/df/ab/80/dfab80fcc845ba13c08659bd2defb3e5--cat-tails-cats.jpg" alt="" style={{width: "70%"
-                }} />
-            </Box>
+                <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mb: { xs: 4, md: -2 } }} >
+                    <img src="https://i.pinimg.com/736x/df/ab/80/dfab80fcc845ba13c08659bd2defb3e5--cat-tails-cats.jpg" alt="" style={{
+                        width: "60%"
+                    }} />
+                </Box>
 
+            </Box>
         </Box>
-        </>
     )
 }
