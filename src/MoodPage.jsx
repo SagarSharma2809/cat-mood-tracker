@@ -67,6 +67,7 @@ export default function MoodPage({ changeData }) {
 
     const [mood, setMood] = useState(3.5);
     const [note, setNote] = useState("");
+    const [noteError, setNoteError] = useState(false);
 
 
     const handleMoodChange = (newMood) => {
@@ -74,11 +75,17 @@ export default function MoodPage({ changeData }) {
     };
 
     const noteChange = (newNote) => {
+        setNoteError(false);
         setNote(newNote);
     }
 
+
     const handleClick = () => {
-        changeData(customIcons[mood].label, note, todayDate);
+        if (note.length > 50) {
+            setNoteError(true);
+            return;
+        }
+        changeData(customIcons[mood].label, note, todayDate, mood);
         // alert("Data saved successfully")
         setMood(3.5);
         setNote("");
@@ -86,7 +93,7 @@ export default function MoodPage({ changeData }) {
 
 
     return (
-        <Box sx={{ height: { xs: '100%', md: '100vh' }, backgroundImage: 'url("https://wallpaperaccess.com/full/9460702.png")', backgroundPosition: 'center', backgroundSize: 'cover', border: '1px solid red' }}>
+        <Box sx={{ height: { xs: '100%', md: '100vh' }, backgroundImage: 'url("https://wallpaperaccess.com/full/9460702.png")', backgroundPosition: 'center', backgroundSize: 'cover' }}>
 
             <NavBar />
             <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: 'center', justifyContent: 'center' }}>
@@ -100,6 +107,7 @@ export default function MoodPage({ changeData }) {
                             <Note note={note} handleNoteChange={noteChange} />
                             <Button variant="contained" sx={{ m: 4 }} onClick={handleClick}>Submit</Button>
                         </Box>
+                        {noteError && <p style={{ color: 'maroon', fontSize: '1.1em', fontWeight: 'bold', textAlign: 'center' }}>Please enter less than 50 characters</p>}
                     </Box>
                 </Box>
 

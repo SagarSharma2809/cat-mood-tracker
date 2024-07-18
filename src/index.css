@@ -2,7 +2,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  
+
 
 }
 
+body {
+  background-color: rgba(254, 232, 156, 255);
+}

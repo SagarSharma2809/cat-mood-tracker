@@ -6,40 +6,41 @@ import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
 import CreateIcon from '@mui/icons-material/Create';
 
-export default function Note({note, handleNoteChange}){
+export default function Note({ note, handleNoteChange }) {
 
-    // const [input, setInput] = useState("");
+  // const [input, setInput] = useState("");
 
-    const handleChange = (event) =>{
-        handleNoteChange(event.target.value);
-    }
+  const handleChange = (event) => {
 
-    return(
-        <>
-        
+    handleNoteChange(event.target.value);
+  }
 
-        <TextField
-          id="outlined-multiline-flexible"
-          label="Add Note"
-          multiline
-          maxRows={4}
-          value={note}
-          onChange={handleChange}
-          InputProps={{
-            endAdornment: <InputAdornment position="end">
-                <IconButton
-                  aria-label="toggle note"
-                  
-                  edge="end"
-                >
-                  <CreateIcon></CreateIcon>
-                </IconButton>
-            </InputAdornment>,
-          }}
-        />
+  return (
+    <>
 
-        
 
-        </>
-    )
+      <TextField
+        id="outlined-multiline-flexible"
+        label="Add Note"
+        multiline
+        maxRows={4}
+        value={note}
+        onChange={handleChange}
+        InputProps={{
+          endAdornment: <InputAdornment position="end">
+            <IconButton
+              aria-label="toggle note"
+
+              edge="end"
+            >
+              <CreateIcon></CreateIcon>
+            </IconButton>
+          </InputAdornment>,
+        }}
+      />
+
+
+
+    </>
+  )
 }

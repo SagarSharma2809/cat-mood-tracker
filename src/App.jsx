@@ -15,10 +15,10 @@ function App() {
 
   const [catMoodData, setCatMoodData] = useState(data);  //[{mood1, note1, date1}, {mood2, note2, date2}]
 
-  const addNewData = (mood, note, date) => {
+  const addNewData = (mood, note, date, num) => {
 
     setCatMoodData((prevCatData) => {
-      return [...prevCatData, { id: crypto.randomUUID(), mood: mood, note: note, date: date }]
+      return [...prevCatData, { id: crypto.randomUUID(), mood: mood, note: note, date: date, moodNum: num }]
     })
   }
 
