@@ -24,7 +24,7 @@ import {
 
 
 
-const pages = ['Home', 'Mood', 'History'];
+const pages = ['Home', 'Mood', 'Track'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 export default function NavBar() {

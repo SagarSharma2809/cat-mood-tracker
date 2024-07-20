@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import NavBar from './NavBar';
 
@@ -11,19 +11,15 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import Tooltip from '@mui/material/Tooltip';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
+import Button from '@mui/material/Button';
 
-// const bgColorCard = {
-//     0.5: "#191970", //midnight blue
-//     1: "#4682B4",  //steel blue
-//     1.5: "#FF6347", //tomato
-//     2: "#FF8C00", //dark orange
-//     2.5: "#BDB76B", //khaki
-//     3: "#C0C0C0", //silver
-//     3.5: "#98FB98", //pale green
-//     4: "#00FF7F", //spring green
-//     4.5: "#9ACD32", //yellow green
-//     5: "#ADFF2F", //lawn green
-// }
+import LineChart from './LineChart';
+import Chart from "chart.js/auto";
+import { CategoryScale } from "chart.js";
+
+
+Chart.register(CategoryScale);
+
 
 const bgColorCard = {
     0.5: "#4682B4", // steel blue, scared angry (bluish coral)
@@ -40,7 +36,48 @@ const bgColorCard = {
 
 
 
-export default function HistoryPage({ catData, deleteData, clearAll }) {
+export default function TrackPage({ catData, deleteData, clearAll }) {
+
+    const [chartData, setChartData] = useState({
+        labels: catData.map((data) => data.date),
+        datasets: [
+            {
+                label: "mood",
+                data: catData.map((data) => data.moodNum),
+                backgroundColor: [
+                    "rgba(75, 192, 192, 1)",
+                    "#ecf0f1",
+                    "#50AF95",
+                    "#f3ba2f",
+                    "#2a71d0"
+                ],
+                borderColor: "black",
+                borderWidth: 2
+            }
+        ]
+    })
+
+    useEffect(() => {
+        setChartData({
+            labels: catData.map((data) => data.date),
+            datasets: [
+                {
+                    label: "mood",
+                    data: catData.map((data) => data.moodNum),
+                    backgroundColor: [
+                        "rgba(75, 192, 192, 1)",
+                        "#ecf0f1",
+                        "#50AF95",
+                        "#f3ba2f",
+                        "#2a71d0"
+                    ],
+                    borderColor: "black",
+                    borderWidth: 2
+                }
+            ]
+        });
+    }, [catData]);
+
     const [open, setOpen] = useState(false);
 
     const handleTooltipClose = () => {
@@ -97,7 +134,7 @@ export default function HistoryPage({ catData, deleteData, clearAll }) {
                             )
                         })}
                     </Box>
-                    <Box sx={{ m: 1, p: 2 }}><button style={{ padding: '2px 3px', cursor: 'pointer' }} onClick={clearAll}>Clear All</button></Box>
+                    <Box sx={{ m: 1, p: 2 }}><Button variant="contained" onClick={clearAll}>Clear All</Button></Box>
 
                 </Box>
 
@@ -105,6 +142,7 @@ export default function HistoryPage({ catData, deleteData, clearAll }) {
                 <Box sx={{ width: '50%', position: 'relative', m: 2 }}>
                     <Box>
                         <h1 style={{ color: '#3187bb' }}>GRAPH</h1>
+                        <LineChart chartData={chartData} />
                     </Box>
 
                     <Box sx={{ position: 'fixed', right: '0px', bottom: '0px', width: '300px' }}>

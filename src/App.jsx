@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from "./NavBar";
 import Home from "./Home";
 import MoodPage from './MoodPage';
-import HistoryPage from './HistoryPage';
+import TrackPage from "./TrackPage";
 
 import './App.css'
 
@@ -42,7 +42,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/MoodPage" element={<MoodPage changeData={addNewData} />} />
-          <Route path="/HistoryPage" element={<HistoryPage catData={catMoodData} deleteData={deleteData} clearAll={clearAll} />} />
+          <Route path="/TrackPage" element={<TrackPage catData={catMoodData} deleteData={deleteData} clearAll={clearAll} />} />
         </Routes>
       </Router>
     </>
